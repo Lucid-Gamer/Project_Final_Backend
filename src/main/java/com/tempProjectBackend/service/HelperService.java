@@ -17,4 +17,5 @@ public interface HelperService {
 	
 	List<HelperDTO> findByHelperService(String helperService); 
 	
+	HelperDTO loginFunction(String helperEmail, String helperContact);
 }

@@ -61,4 +61,11 @@ public class HelperController {
 		List<HelperDTO> helpers = this.helperService.findByHelperService(helperService);
 		return new ResponseEntity<List<HelperDTO>>(helpers,HttpStatus.OK);
 	}
+	
+	@GetMapping("/login/{helperEmail}/{helperContact}")
+	public ResponseEntity<HelperDTO> helperLoginFunction(@PathVariable("helperEmail") String helperEmail,@PathVariable("helperContact") String helperContact)
+	{
+		HelperDTO helperdto = this.helperService.loginFunction(helperEmail, helperContact);
+		return new ResponseEntity<HelperDTO>(helperdto,HttpStatus.OK);
+	}
 }

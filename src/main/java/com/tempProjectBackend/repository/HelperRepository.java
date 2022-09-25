@@ -11,4 +11,7 @@ public interface HelperRepository extends JpaRepository<Helper, Integer>{
 	@Query("select h from Helper h where h.HelperService =:key ")
 	List<Helper> findHelperByHelperService(@Param("key") String helperService);
 	
+	@Query("select h from Helper h where h.HelperEmail =:keyone and h.HelperContact =:keytwo")
+	Helper HelperLogin(@Param("keyone") String helperEmail,@Param("keytwo") String helperContact);
+	
 }

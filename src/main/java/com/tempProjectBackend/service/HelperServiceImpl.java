@@ -102,4 +102,11 @@ public class HelperServiceImpl implements HelperService {
 		return helperdtos;
 	}
 
+	@Override
+	public HelperDTO loginFunction(String helperEmail, String helperContact) {
+		Helper helper = this.helperRepository.HelperLogin(helperEmail, helperContact);
+		HelperDTO helperdto = this.modelMapper.map(helper, HelperDTO.class);
+		return helperdto;
+	}
+
 }
