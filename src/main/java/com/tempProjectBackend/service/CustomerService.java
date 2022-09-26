@@ -16,4 +16,6 @@ public interface CustomerService {
 	
 	public CustomerDTO createCustomer(CustomerDTO customer);
 	
+	public CustomerDTO loginFunction(String customerEmailID, String customerContact);
+	
 }

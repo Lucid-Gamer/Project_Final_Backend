@@ -30,15 +30,12 @@ public class OrderServiceImpl implements OrderService {
 	private ModelMapper modelMapper; 
 	
 	@Override
-	public OrderDTO createOrder(OrderDTO orderdto, Integer CustomerID, Integer HelperID) {
-		Order order = this.modelMapper.map(orderdto, Order.class);
+	public OrderDTO createOrder(Integer CustomerID, Integer HelperID) {
 		Customer customer =  customerRepository.findById(CustomerID).orElseThrow(() -> new ResourceNotFoundException("Customer","id",CustomerID));
 		Helper helper =  helperRepository.findById(HelperID).orElseThrow(() -> new ResourceNotFoundException("Helper","id",HelperID));
 		Order neworder = new Order();
-		neworder.setOrderRemarks(order.getOrderRemarks());
 		neworder.setCustomer(customer);
 		neworder.setHelper(helper);
-		
 		Order saveorder =  ordersRepository.save(neworder);
 		return this.modelMapper.map(saveorder, OrderDTO.class);
 	}

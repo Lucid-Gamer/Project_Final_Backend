@@ -1,14 +1,10 @@
 package com.tempProjectBackend.controller;
 
 import java.util.List;
-import java.util.Map;
-
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.tempProjectBackend.models.Customer;
 import com.tempProjectBackend.payload.ApiResponse;
 import com.tempProjectBackend.payload.CustomerDTO;
 import com.tempProjectBackend.service.CustomerService;
@@ -58,5 +53,12 @@ public class CustomerController {
 	public ResponseEntity<CustomerDTO> updateCustomer(@Valid @PathVariable int id,@RequestBody CustomerDTO customerdto)
 	{
 		return new ResponseEntity<CustomerDTO>(customerService.updateCustomer(id, customerdto),HttpStatus.OK);
+	}
+	
+	@GetMapping("/login/{customerEmailID}/{customerContact}")
+	public ResponseEntity<CustomerDTO> customerLogin(@PathVariable("customerEmailID") String customerEmailID, @PathVariable("customerContact") String customerContact)
+	{
+		CustomerDTO customerDTO = this.customerService.loginFunction(customerEmailID, customerContact);
+		return new ResponseEntity<CustomerDTO>(customerDTO,HttpStatus.OK);
 	}
 }

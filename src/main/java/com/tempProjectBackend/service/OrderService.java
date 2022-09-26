@@ -9,7 +9,7 @@ import com.tempProjectBackend.payload.OrderDTO;
 
 public interface OrderService {
 	
-	OrderDTO createOrder(OrderDTO orderdto, Integer CustomerID, Integer HelperID);
+	OrderDTO createOrder(Integer CustomerID, Integer HelperID);
 	
 	OrderDTO updateOrder(OrderDTO neworderdto, int id);
 	

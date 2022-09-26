@@ -89,7 +89,7 @@ public class Helper {
 	public String getHelperName() {
 		return HelperName;
 	}
-
+	
 
 	public void setHelperName(String helperName) {
 		HelperName = helperName;
@@ -124,7 +124,7 @@ public class Helper {
 	public void setHelperContact(String helperContact) {
 		HelperContact = helperContact;
 	}
-
+	
 
 	public String getHelperEmail() {
 		return HelperEmail;

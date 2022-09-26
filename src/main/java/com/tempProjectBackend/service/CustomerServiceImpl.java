@@ -3,6 +3,7 @@ package com.tempProjectBackend.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,9 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Autowired
 	private CustomerRepository customerRepository;
+	
+	@Autowired
+	private ModelMapper modelMapper;
 	
 	@Override
 	public List<CustomerDTO> getAllCustomers() {
@@ -87,6 +91,13 @@ public class CustomerServiceImpl implements CustomerService {
 		customerDTO.setCustomerContact(customer.getCustomerContact());
 		customerDTO.setCustomerAddress(customer.getCustomerAddress());
 		customerDTO.setDOB(customer.getDOB());
+		return customerDTO;
+	}
+
+	@Override
+	public CustomerDTO loginFunction(String customerEmailID, String customerContact) {
+		Customer customer = this.customerRepository.customerLogin(customerEmailID, customerContact);
+		CustomerDTO customerDTO = this.modelMapper.map(customer, CustomerDTO.class);
 		return customerDTO;
 	}
 

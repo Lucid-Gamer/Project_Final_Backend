@@ -28,28 +28,14 @@ public class Order {
 	@JoinColumn(name = "helper_id")
 	private Helper helper;
 	
-	@Column(name = "order_remarks")
-	private String OrderRemarks;
-	
 	public Order() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Order(int orderID, Customer customer, Helper helper, String orderRemarks) {
+	public Order(int orderID, Customer customer, Helper helper) {
 		OrderID = orderID;
 		this.customer = customer;
 		this.helper = helper;
-		OrderRemarks = orderRemarks;
-	}
-
-
-
-	public String getOrderRemarks() {
-		return OrderRemarks;
-	}
-
-	public void setOrderRemarks(String orderRemarks) {
-		OrderRemarks = orderRemarks;
 	}
 
 	public int getOrderID() {

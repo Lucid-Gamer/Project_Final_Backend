@@ -2,31 +2,20 @@ package com.tempProjectBackend.payload;
 
 import java.sql.Date;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
-
-import org.springframework.format.annotation.DateTimeFormat;
-
 public class CustomerDTO {
 	
 	private int CustomerID;
 	
-	@NotEmpty
 	private String CustomerName;
 	
-	@DateTimeFormat
 	private Date DOB;
 	
-	@NotEmpty
 	private String CustomerContact;
 	
-	@NotEmpty
 	private String CustomerAddress;
 	
-	@Email
 	private String CustomerEmailID;
 	
-	@NotEmpty
 	public String CustomerGender;
 	
 	public CustomerDTO() {

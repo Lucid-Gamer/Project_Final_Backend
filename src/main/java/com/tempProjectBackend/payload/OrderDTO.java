@@ -5,8 +5,6 @@ public class OrderDTO {
 	
 	private String OrderID;
 	
-	private String OrderRemarks;
-	
 	private CustomerDTO customer;
 	
 	private HelperDTO helper;
@@ -18,11 +16,10 @@ public class OrderDTO {
 
 	
 
-	public OrderDTO(String orderID, String orderRemarks, CustomerDTO customer,
+	public OrderDTO(String orderID, CustomerDTO customer,
 			HelperDTO helper) {
 		super();
 		OrderID = orderID;
-		OrderRemarks = orderRemarks;
 		this.customer = customer;
 		this.helper = helper;
 	}
@@ -38,20 +35,6 @@ public class OrderDTO {
 	public void setOrderID(String orderID) {
 		OrderID = orderID;
 	}
-
-
-
-	public String getOrderRemarks() {
-		return OrderRemarks;
-	}
-
-
-
-	public void setOrderRemarks(String orderRemarks) {
-		OrderRemarks = orderRemarks;
-	}
-
-
 
 	public CustomerDTO getCustomer() {
 		return this.customer;
